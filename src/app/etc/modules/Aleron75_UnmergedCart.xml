@@ -1,0 +1,9 @@
+<config>
+    <modules>
+        <Aleron75_UnmergedCart>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Aleron75_UnmergedCart>
+    </modules>
+</config>
+
