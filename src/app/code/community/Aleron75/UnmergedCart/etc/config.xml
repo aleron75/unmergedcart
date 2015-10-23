@@ -2,7 +2,25 @@
 <config>
     <modules>
         <Aleron75_UnmergedCart>
-            <version>0.1.0</version>
+            <version>1.0.0</version>
         </Aleron75_UnmergedCart>
     </modules>
+    <global>
+        <models>
+            <aleron75_unmergedcart>
+                <class>Aleron75_UnmergedCart_Model</class>
+            </aleron75_unmergedcart>
+        </models>
+        <events>
+            <sales_quote_merge_before>
+                <observers>
+                    <aleron75_unmergedcart>
+                        <type>singleton</type>
+                        <class>aleron75_unmergedcart/observer_preventMergeQuote</class>
+                        <method>observe</method>
+                    </aleron75_unmergedcart>
+                </observers>
+            </sales_quote_merge_before>
+        </events>
+    </global>
 </config>
