@@ -1,0 +1,15 @@
+{
+  "name": "Aleron75/Unmergedcart",
+  "license": "OSL-3.0",
+  "type": "magento-module",
+  "description": "Magento module which prevents merging customer saved quote with session quote",
+  "require": {
+    "magento-hackathon/magento-composer-installer": "*"
+  },
+  "authors":[
+    {
+      "name":"Alessandro Ronchi",
+      "email":"aleron75@gmail.com"
+    }
+  ]
+}
