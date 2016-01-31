@@ -1,12 +1,19 @@
 # UnmergedCart
 
 ## Facts
-Version: 1.0.0
-Developed (and tested) on Magento CE v 1.9.2.0
+Version: 1.1.0
+Developed and tested on Magento CE v 1.9.2.0
 
 ## Introduction
-This module adds an observer to the `sales_quote_merge_before` event to prevent the saved customer quote to be merged
-with current session quote, which represents the default Magento behaviour.
+This module adds an observer to the `sales_quote_merge_before` event to change the way the saved customer quote 
+is merged with current session quote.
+
+To configure the desired behaviour change the value in 
+`System > Configuration > SALES > Checkout > Shopping Cart > Merge cart upon log in`; you can choose between:
+
+* `Yes: default behavior` - the module doesn't change the Magento default behavior that is merging session and customer cart after log in
+* `No: use session cart` - customer saved cart items are discarded, only items in session cart are maintained after log in
+* `No: use customer cart` - session cart items are discarded, only items in customer cart are maintained after log in
 
 ## Installation
 You can install this extension in several ways; they are described below.

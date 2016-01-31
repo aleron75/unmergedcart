@@ -2,10 +2,15 @@
 <config>
     <modules>
         <Aleron75_UnmergedCart>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </Aleron75_UnmergedCart>
     </modules>
     <global>
+        <helpers>
+            <aleron75_unmergedcart>
+                <class>Aleron75_UnmergedCart_Helper</class>
+            </aleron75_unmergedcart>
+        </helpers>
         <models>
             <aleron75_unmergedcart>
                 <class>Aleron75_UnmergedCart_Model</class>
@@ -23,4 +28,11 @@
             </sales_quote_merge_before>
         </events>
     </global>
+    <default>
+        <checkout>
+            <cart>
+                <aleron75_unmergedcart_merge_type>0</aleron75_unmergedcart_merge_type>
+            </cart>
+        </checkout>
+    </default>
 </config>

@@ -7,15 +7,27 @@ class Aleron75_UnmergedCart_Model_Observer_PreventMergeQuote
      */
     public function observe(Varien_Event_Observer $observer)
     {
+        /** @var Aleron75_UnmergedCart_Helper_Data $h */
+        $h = Mage::helper('aleron75_unmergedcart');
+        if (!$h->isActive()) {
+            return;
+        }
+
         /** @var Mage_Sales_Model_Quote $customerQuote */
         $customerQuote = $observer->getQuote();
 
-        /** @var Mage_Sales_Model_Quote $sourceQuote */
-        $sourceQuote = $observer->getSource();
+        /** @var Mage_Sales_Model_Quote $sessionQuote */
+        $sessionQuote = $observer->getSource();
 
-        if ($customerQuote->getId() && $sourceQuote->getId() != $customerQuote->getId()) {
+        if ($customerQuote->getId() && $sessionQuote->getId() != $customerQuote->getId()) {
+
+            /** @var Mage_Sales_Model_Quote $discardableQuote */
+            $discardableQuote = $h->isKeepSessionCart()
+                ? $customerQuote
+                : $sessionQuote;
+
             /** @var Mage_Sales_Model_Quote_Item $item */
-            foreach ($customerQuote->getAllItems() as $item) {
+            foreach ($discardableQuote->getAllItems() as $item) {
                 $item->isDeleted(true);
                 if ($item->getHasChildren()) {
                     /** @var Mage_Sales_Model_Quote_Item_Abstract $child */
