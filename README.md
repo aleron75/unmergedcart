@@ -41,11 +41,11 @@ Install Magento Composer Installer: https://github.com/magento-hackathon/magento
 
 Type the following command from `{{magento_basedir}}`:
 
-    $ php composer.phar require Aleron75/Unmergedcart:v1.1.0
+    $ php composer.phar require aleron75/unmergedcart:v1.1.0
 
 or
 
-    $ composer require Aleron75/Unmergedcart:v1.1.0
+    $ composer require aleron75/unmergedcart:v1.1.0
 
 ## Post install
 After installation:
